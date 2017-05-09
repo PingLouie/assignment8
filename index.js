@@ -1,46 +1,113 @@
-// bind a click event to the +
-// every time that + is clicked
-// for that flavor, check if a cookie with the count is set
-// if the cookie is set, you want to take that value and add 1 and resave it
-// otherwise set a cookie with a value of 1
+$(document).ready(function() {
+	$(".SugarCountUp").click(function() {
+		var flavor = $(this).parent().attr("data-flavor");
 
-$(".SugarCountUp").click(function() {
+		var previousCount = Cookies.get(flavor);
+		var currentCount = 0;
 
-	var SCUp = Cookies.get("SugarCountUp");  
+		if (previousCount) {
+			currentCount = parseInt(previousCount) + 1; // -1
+		} else {
+			currentCount = 1; // 0
+		}
 
-	if (typeof SCUp === "undefined") {
-		SCUp = 1;
-	}
-	else {
-		SCUp++;
-	}
-	console.log("SCUp",SCUp)
+		Cookies.set(flavor, currentCount);
+	});
 
-	/* if (isNaN(number) {
-		number == parseInt("1");
-	}); */
+	$(".SugarCountDown").click(function() {
+		var flavor = $(this).parent().attr("data-flavor");
 
-	/* var isNaN = function(number) {
-		return number == 1;
-	}; */
+		var previousCount = Cookies.get(flavor);
+		var currentCount = 0;
 
-	Cookies.set("SugarCountUp", SCUp);
+		if (previousCount) {
+			currentCount = parseInt(previousCount) - 1;
+		} else {
+			currentCount = 0;
+		}
+
+		Cookies.set(flavor, currentCount);
+	});
+
+	$(".SugarReset").click(function() {
+		var flavor = $(this).parent().attr("data-flavor");
+		Cookies.set(flavor, 0);
+	});
 });
 
-$(".SugarCountDown").click(function() {
-	var SCDown = Cookies.get("SugarCountDown");
-	if (typeof SCDown === "undefined") {
-		SCDown = 1;
-	}
-	else {
-		SCDown--;
-	};
-	console.log("SCDown", SCDown);
-	Cookies.set("SugarCountDown", SCDown);
+$(document).ready(function() {
+	$(".ChocolateCountUp").click(function() {
+		var flavor = $(this).parent().attr("data-flavor");
+
+		var previousCount = Cookies.get(flavor);
+		var currentCount = 0;
+
+		if (previousCount) {
+			currentCount = parseInt(previousCount) + 1;
+		} else {
+			currentCount = 1;
+		}
+
+		Cookies.set(flavor, currentCount);
+	});
+
+	$(".ChocolateCountDown").click(function() {
+		var flavor = $(this).parent().attr("data-flavor");
+
+		var previousCount = Cookies.get(flavor);
+		var currentCount = 0;
+
+		if (previousCount) {
+			currentCount = parseInt(previousCount) - 1;
+		} else {
+			currentCount = 0;
+		}
+
+		Cookies.set(flavor, currentCount);
+	});
+
+	$(".ChocolateReset").click(function() {
+		var flavor = $(this).parent().attr("data-flavor");
+		Cookies.set(flavor, 0);
+	});
 });
-console.log("hi");
-$(".SugarReset").click(function() {
-	var SCR = 0;
-	console.log("SCR", SCR);
-	Cookies.set("SugarReset", SCR);
+
+$(document).ready(function() {
+	$(".LemonCountUp").click(function() {
+		var flavor = $(this).parent().attr("data-flavor");
+
+		var previousCount = Cookies.get(flavor);
+		var currentCount = 0;
+
+		if (previousCount) {
+			currentCount = parseInt(previousCount) + 1;
+		} else {
+			currentCount = 1;
+		}
+
+		Cookies.set(flavor, currentCount);
+	});
+
+	$(".LemonCountDown").click(function() {
+		var flavor = $(this).parent().attr("data-flavor");
+
+		var previousCount = Cookies.get(flavor);
+		var currentCount = 0;
+
+		if (previousCount) {
+			currentCount = parseInt(previousCount) - 1;
+		} else {
+			currentCount = 0;
+		}
+
+		Cookies.set(flavor, currentCount);
+	});
+
+	$(".LemonReset").click(function() {
+		var flavor = $(this).parent().attr("data-flavor");
+		Cookies.set(flavor, 0);
+	});
 });
+
+
+
